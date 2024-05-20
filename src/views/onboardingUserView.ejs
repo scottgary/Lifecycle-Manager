@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LCM</title>
+  <link rel="stylesheet" href="https://blueprint.hover.to/assets/css/bootstrap-theme-1.0.1.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="/images/logo.jpg" alt="logo" width="50" height="50" class="icon">
+    <a class="navbar-brand" href="#">LCM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/offboarding">Offboarding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/onboarding">Onboarding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/import">BambooHR Import</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contractors">Contractors</a>
+        </li>
+      </ul>
+    </div>
+    <img src="../images/logo.jpg" alt="logo" width="50" height="50">
+  </nav>
+
+  <!-- User View -->
+  <div class="container mt-4">
+    <% data.forEach((item) => { %>
+      <a href="javascript:history. back()" class="btn btn-primary">←</a> 
+      <br>
+      <br>
+      <h2>User Information</h2>
+      <br>
+      <% 
+            // Assuming the date variable is named 'dateString'
+            const dateString = item.start_date;
+
+            // Create a new Date object from the dateString
+            const date = new Date(dateString);
+
+            // Get the year, month, and day from the Date object
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+            const day = String(date.getDate()).padStart(2, '0');
+
+            // Concatenate the parts to form the yyyy-mm-dd format
+            const formattedDate = `${year}-${month}-${day}`;
+        %>
+        <div class="info-item">
+            <label><b>Name:</b></label> <%= item.name %>
+        </div>
+        <div class="info-item">
+            <label><b>Email:</b></label> <%= item.email %>
+        </div>
+        <div class="info-item">
+            <label><b>Hire Date:</b></label> <%= formattedDate %>
+        </div>
+        <div class="info-item">
+            <label><b>Employee Status:</b></label> <%= item.employee_status %>
+        </div>
+        <div class="info-item">
+            <label><b>Time Zone:</b></label> <%= item.user_tz %>
+        </div>
+        <div class="info-item">
+            <label><b>Manager Email:</b></label> <a href="mailto: <%= item.user_manager_email %>"><%= item.user_manager_email %></a>
+        </div>
+        <div class="info-item">
+            <label><b>Title:</b></label> <%= item.user_role %>
+        </div>
+        <div class="info-item">
+            <label><b>Is Manager:</b></label> <%= item.user_is_manager %>
+        </div>
+        <div class="info-item">
+            <label><b>Location:</b></label> <%= item.location %>
+        </div>
+        <div class="info-item">
+            <label><b>Secondary Email</b></label> <a href="mailto: <%= item.secondary_email %>"><%= item.secondary_email %></a>
+        </div>
+        <div class="info-item">
+            <label><b>Okta ID:</b></label> <a href="https://hover-admin.okta.com/admin/user/profile/view/<%= item.okta_id %>"><%= item.okta_id %></a>
+        </div>
+        <div class="info-item">
+          <label><b>Phone:</b></label> <%= item.user_phone %>
+        </div>
+        <div class="info-item">
+          <label><b>Address:</b></label> <%= item.user_address_street %> <%= item.user_address_street1 %>
+        </div>
+        <div class="info-item">
+          <label><b>City:</b></label> <%= item.user_address_city %>
+        </div>
+        <div class="info-item">
+          <label><b>State:</b></label> <%= item.user_address_state %>
+      </div>
+      <div class="info-item">
+        <label><b>Zip:</b></label> <%= item.user_address_zip %>
+      </div>
+    <% }) %>
+    <br>
+    <br>
+    <h3>Actions</h3>
+    <button class="btn btn-primary">Manual Activation</button>
+    <button class="btn btn-primary">Edit User Info</button>
+    <button class="btn btn-primary">Email User</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LCM</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="/images/logo.jpg" alt="logo" width="50" height="50" class="icon">
+    <a class="navbar-brand" href="#">LCM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/offboarding">Offboarding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/onboarding">Onboarding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/import">BambooHR Import</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contractors">Contractors</a>
+        </li>
+      </ul>
+    </div>
+    <img src="../images/logo.jpg" alt="logo" width="50" height="50">
+  </nav>
+
+  <!-- User View -->
+  <div class="container mt-4">
+    <% data.forEach((item) => { %>
+      <a href="javascript:history. back()" class="btn">←</a>
+      <h2>User Info</h2>
+      <br>
+      <h3>Name: <%= item.name %></h3>
+      <h3>Email: <%= item.hover_email %></h3>
+      <h3>Hire Date: <%= item.hire_date %></h3>
+      <h3>Employee Status: <%= item.status %></h3>
+      <h3>Title: <%= item.title %></h3>
+      <h3>Manager: <a href="mailto:<%= item.user_poc %>"><%= item.manager_email %></a></h3>
+      <h3>Department: <%= item.department %></h3>
+      <h3>Division: <%= item.division %></h3>
+      <h3>Secondary Email: <%= item.secondary_email %></h3>
+      <h3>Location: <%= item.location %></h3>
+      <h3>Is Manager: <%= item.is_manager %></h3>
+    <% }) %>
+    <br>
+    <br>
+    <button class="btn btn-primary">Deactivate User</button>
+    <button class="btn btn-primary">Edit User</button>
+    <button class="btn btn-primary">Delete User</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

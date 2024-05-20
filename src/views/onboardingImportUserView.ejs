@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LCM</title>
+  <link rel="stylesheet" href="https://blueprint.hover.to/assets/css/bootstrap-theme-1.0.1.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="/images/logo.jpg" alt="logo" width="50" height="50" class="icon">
+    <a class="navbar-brand" href="#">LCM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/offboarding">Offboarding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/onboarding">Onboarding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/import">BambooHR Import</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contractors">Contractors</a>
+        </li>
+      </ul>
+    </div>
+    <img src="../images/logo.jpg" alt="logo" width="50" height="50">
+  </nav>
+
+  <!-- User View -->
+  <div class="container mt-4">
+    <% data.forEach((item) => { %>
+      <a href="javascript:history. back()" class="btn btn-primary">←</a> 
+      <h2>User Info</h2>
+      <br>
+      <div class="info-item">
+        <label><b>Name:</b></label> <%= item.name %>
+      </div>
+      <div class="info-item">
+        <label><b>Title:</b></label> <%= item.title %>
+      </div>
+      <div class="info-item">
+        <label><b>Manager:</b></label> <%= item.manager_name %>
+      </div>
+      <div class="info-item">
+        <label><b>Department:</b></label> <%= item.department %>
+      </div>
+      <div class="info-item">
+        <label><b>Division:</b></label> <%= item.division %>
+      </div>
+      <div class="info-item">
+        <label><b>Team:</b></label> <%= item.team %>
+      </div>
+      <div class="info-item">
+        <label><b>Start Date:</b></label> <%= item.start_date %>
+      </div>
+      <div class="info-item">
+        <label><b>Is Manager:</b></label> <%= item.is_manager %>
+      </div>
+    <% }) %>
+    <br>
+    <br>
+    <button class="btn btn-primary">Approve User</button>
+    <button class="btn btn-primary">Edit User</button>
+    <button class="btn btn-primary">Email User</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

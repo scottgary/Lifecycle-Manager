@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lifecycle Manager</title>
+  <link rel="stylesheet" href="https://blueprint.hover.to/assets/css/bootstrap-theme-1.0.1.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="/images/logo.png" alt="logo" width="50" height="50" class="icon">
+    <a class="navbar-brand" href="#">LCM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/offboarding">Offboarding</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/onboarding">Onboarding</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/import">BambooHR Import</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contractors">Contractors</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Table View -->
+  <div class="container mt-4">
+    <h2>Import Users to BambooHR</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td><input type="checkbox" name="selectAll"></td> 
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Title</th>
+          <th scope="col">Manager</th>
+          <th scope="col">Department</th>
+          <th scope="col">Division</th>
+          <th scope="col">Team</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">Is Manager</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((item) => { %>
+          <tr>
+            <td><input type="checkbox" name="select"></td> 
+            <td><%= item.id %></td>
+            <td><a href="/import/<%= item.id %>"><%= item.name %></td></a></td>
+            <td><%= item.title %></td>
+            <td><%= item.manager_name %></td>
+            <td><%= item.department %></td>
+            <td><%= item.division %></td>
+            <td><%= item.team %></td>
+            <td><%= item.start_date %></td>
+            <td><%= item.is_manager %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="./script.js"></script>
+</html>

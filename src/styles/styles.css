@@ -1,0 +1,68 @@
+/* Basic CSS styles for layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.logo {
+    height: 5.25rem;
+}
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+}
+.navbar a:hover {
+    background-color: #555;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+.filter-frame, .action-frame {
+    width: 200px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+}
+.main-frame {
+    width: 60%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: white;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+/* Container for the table with scrollable content */
+.table-container {
+    width: 100%; /* Occupy full width of the centered frame */
+    height: 100%; /* Occupy full height of the centered frame */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Padding to avoid content touching the border */
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LCM</title>
+  <link rel="stylesheet" href="https://blueprint.hover.to/assets/css/bootstrap-theme-1.0.1.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="/images/logo.jpg" alt="logo" width="50" height="50" class="icon">
+    <a class="navbar-brand" href="#">LCM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/offboarding">Offboarding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/onboarding">Onboarding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/import">BambooHR Import</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contractors">Contractors</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Table View -->
+  <div class="container mt-4">
+    <h2>Hover Offboarding</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td><input type="checkbox" name="selectAll"></td> 
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Last Day</th>
+          <th scope="col">Term Type</th>
+          <th scope="col">Manager</th>
+          <th scope="col">Time Zone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((item) => { %>
+          <tr>
+            <% 
+            // Assuming the date variable is named 'dateString'
+            const dateString = item.last_day;
+
+            // Create a new Date object from the dateString
+            const date = new Date(dateString);
+
+            // Get the year, month, and day from the Date object
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+            const day = String(date.getDate()).padStart(2, '0');
+
+            // Concatenate the parts to form the yyyy-mm-dd format
+            const formattedDate = `${year}-${month}-${day}`;
+            %>
+            <td><input type="checkbox" name="select"></td> 
+            <td><%= item.id %></td>
+            <td><a href="/offboarding/<%= item.id %>"><%= item.name %></td></a></td>
+            <td><%= item.email %></td>
+            <td><%= formattedDate %></td>
+            <td><%= item.term_type %></td>
+            <td><%= item.user_manager %></td>
+            <td><%= item.user_tz %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
